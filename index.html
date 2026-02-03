@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>EuroFlow – Premium SEPA QR Payments</title>
+    <title>EuroFlow – SEPA Bank Transfers via Open Banking (No Credit Cards)</title>
     <meta name="verify-paysera" content="3b17fe4ec47ba155b8bbdbf798d33580">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="EuroFlow - Luxury SEPA QR payment solution. Accept instant bank payments with a simple scan. PSD2 compliant, secure, and elegant." />
+    <meta name="description" content="EuroFlow - SEPA bank transfer solution via Open Banking. Accept instant bank-to-bank payments with QR codes. No credit cards, no Visa/Mastercard. PSD2 compliant." />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23DEC88A'/%3E%3Cstop offset='100%25' stop-color='%23CAAF6D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0C'/%3E%3Cpath d='M16 6L8 11v10l8 5 8-5V11L16 6z' fill='url(%23g)'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -854,7 +854,48 @@
                 text-align: center;
             }
         }
+
+        /* Important Notice Banner */
+        .notice-banner {
+            background: linear-gradient(135deg, var(--bg-elevated), var(--bg-subtle));
+            border-bottom: 1px solid var(--gold-muted);
+            padding: var(--space-md) 0;
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+
+        .notice-banner p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .notice-banner strong {
+            color: var(--gold);
+        }
+
+        .hero {
+            padding-top: 140px !important;
+        }
     </style>
+    <script type="text/javascript" charset="utf-8">
+    (function() {
+        const script = document.createElement('script');
+        const dateToday = new Date();
+        const todayFullDate = dateToday.getDate() + '-' + (dateToday.getMonth() + 1) + '-' + dateToday.getFullYear();
+
+        script.src = 'https://bank.paysera.com/js/compiled/quality-sign.js?v=' + todayFullDate;
+        script.setAttribute('data-paysera-project-id', 255254);
+        script.setAttribute('data-lang', "en");
+        script.async = true;
+
+        document.head.appendChild(script);
+    })();
+    </script>
 </head>
 <body>
     <header>
@@ -874,17 +915,24 @@
         </div>
     </header>
 
+    <div class="notice-banner">
+        <div class="container">
+            <p><strong>Open Banking Only:</strong> EuroFlow processes SEPA bank transfers exclusively. We do NOT support or process Visa, Mastercard, or any credit/debit card payments.</p>
+        </div>
+    </div>
+
     <main>
         <section class="hero">
             <div class="container hero-content">
                 <div class="hero-text">
                     <div class="hero-badge">
-                        <span>PSD2 Compliant</span>
+                        <span>Bank Transfers Only — No Credit Cards</span>
                     </div>
-                    <h1>Premium <span class="gradient-text">SEPA Payments</span> Made Simple</h1>
+                    <h1>Premium <span class="gradient-text">SEPA Bank Transfers</span> Made Simple</h1>
                     <p class="hero-subtitle">
-                        Accept instant bank payments with a simple QR scan.
-                        No card fees, no intermediaries — just seamless, secure transactions.
+                        EuroFlow uses PSD2/Open Banking for direct bank-to-bank transfers only.
+                        <strong>We do NOT support Visa, Mastercard, or any credit/debit card payments.</strong>
+                        No card data is ever collected, processed, or stored.
                     </p>
                     <div class="hero-buttons">
                         <a href="#" class="btn btn-primary">
@@ -1161,7 +1209,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Why Choose <span class="gradient-text">EuroFlow</span></h2>
-                    <p>Built for modern European businesses who demand elegance, security, and efficiency in their payment solutions.</p>
+                    <p>Built for modern European businesses who want direct bank transfers without credit card fees. EuroFlow uses Open Banking APIs exclusively — no card payments.</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -1204,7 +1252,7 @@
                             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
                         </div>
                         <h3>Multi-Bank Support</h3>
-                        <p>Connect to thousands of European banks through Tink and Paysera. One integration, continent-wide coverage.</p>
+                        <p>Connect to thousands of European banks through Paysera. One integration, continent-wide coverage.</p>
                     </div>
                 </div>
             </div>
@@ -1241,7 +1289,7 @@
                 <div class="dual-grid">
                     <div class="dual-card">
                         <h3>For <span class="gradient-text">Merchants</span></h3>
-                        <p>Accept bank payments with zero card processing fees. Perfect for retail, hospitality, and services.</p>
+                        <p>Accept direct bank transfers via Open Banking. No card processing — payments go straight from customer's bank to yours.</p>
                         <ul class="dual-features">
                             <li>
                                 <span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
@@ -1263,7 +1311,7 @@
                     </div>
                     <div class="dual-card">
                         <h3>For <span class="gradient-text">Customers</span></h3>
-                        <p>Pay directly from your bank account. No cards, no wallets — just your trusted bank.</p>
+                        <p>Pay directly from your bank account via Open Banking. No credit cards, no debit cards — just secure bank-to-bank transfers.</p>
                         <ul class="dual-features">
                             <li>
                                 <span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
@@ -1298,7 +1346,6 @@
                     <div class="tech-item"><strong>Flutter</strong> Mobile</div>
                     <div class="tech-item"><strong>PostgreSQL</strong> Database</div>
                     <div class="tech-item"><strong>Keycloak</strong> Auth</div>
-                    <div class="tech-item"><strong>Tink</strong> Open Banking</div>
                     <div class="tech-item"><strong>Paysera</strong> Payments</div>
                     <div class="tech-item"><strong>Docker</strong> Deployment</div>
                     <div class="tech-item"><strong>Kubernetes</strong> Orchestration</div>
@@ -1311,14 +1358,19 @@
                 <div class="security-text">
                     <h2>Security <span class="gradient-text">First</span></h2>
                     <p style="color: var(--text-secondary); margin-top: var(--space-md);">
-                        EuroFlow is built on European banking security standards.
-                        We never store card numbers or bank credentials — all authentication
-                        happens directly with your bank through PSD2-compliant APIs.
+                        EuroFlow is built on European Open Banking standards for bank-to-bank transfers.
+                        <strong>We do not process, collect, or store any credit or debit card information.</strong>
+                        All payments are direct bank transfers via PSD2-compliant APIs —
+                        no Visa, Mastercard, or any card network is involved.
                     </p>
                     <div class="security-badges">
                         <div class="security-badge">
+                            <strong>No Cards</strong>
+                            <span>Bank Transfers Only</span>
+                        </div>
+                        <div class="security-badge">
                             <strong>PSD2</strong>
-                            <span>Compliant</span>
+                            <span>Open Banking</span>
                         </div>
                         <div class="security-badge">
                             <strong>SCA</strong>
@@ -1327,10 +1379,6 @@
                         <div class="security-badge">
                             <strong>TLS 1.3</strong>
                             <span>Encrypted</span>
-                        </div>
-                        <div class="security-badge">
-                            <strong>OAuth 2.0</strong>
-                            <span>Secure Tokens</span>
                         </div>
                     </div>
                 </div>
@@ -1345,8 +1393,8 @@
         <section class="cta">
             <div class="container">
                 <div class="cta-box">
-                    <h2>Ready to Accept <span class="gradient-text">Smarter Payments</span>?</h2>
-                    <p>Join the future of European payments. No card fees, instant settlement, premium experience.</p>
+                    <h2>Ready for <span class="gradient-text">Direct Bank Transfers</span>?</h2>
+                    <p>Join the future of European Open Banking payments. Direct bank-to-bank transfers, no credit cards involved.</p>
                     <div class="cta-buttons">
                         <a href="#" class="btn btn-primary">Get Started Free</a>
                         <a href="https://github.com/developergasa/euroflow" class="btn btn-outline">View on GitHub</a>
@@ -1365,7 +1413,7 @@
                 <a href="#">Terms of Service</a>
             </div>
             <div class="footer-copy">
-                &copy; 2026 EuroFlow. Premium SEPA QR Payments.
+                &copy; 2026 EuroFlow. SEPA Bank Transfers via Open Banking. No credit card payments.
             </div>
         </div>
     </footer>
